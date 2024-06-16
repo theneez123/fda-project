@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import fdalogo from '../assets/fdalogo.png'
 import "./logincss.css"
 
-function Login(){
-
-    return(
-        <div className="login-container">
+const loginpage = () => {
+  return (
+    <div>
+      <div className="login-container">
         <div className="login-box">
 
         <img src={fdalogo} alt="FDA Logo" className="logo" />
@@ -25,12 +25,14 @@ function Login(){
         </form>
 
         <div className="links">
-          <p> If you do not have an account <a href="">Click Here</a> </p>
+          <p> If you do not have an account <a href="here">Click Here</a> </p>
           <p>Have you forgotten your password? <a href="/reset"> Reset Now</a></p>
         </div>
       </div>
     </div>
-    );
+    </div>
+  )
 }
 
-export default Login;
+export default loginpage
+
