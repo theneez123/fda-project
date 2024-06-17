@@ -1,9 +1,8 @@
 import React from 'react';
 import './Assetspagecss.css';
-import microscope from '../../../assets/microscope.png'
-import SideNav from '../../components/sidenav/SideNav.js';
-import TopNav from '../../components/topnav/TopNav.js';
-import Assetscard from '../../components/assetscard/assetscard.js'
+import SideNav from '../../../components/sidenav/SideNav.js';
+import TopNav from '../../../components/topnav/TopNav.js';
+import Assetscard from '../../../components/assetscard/assetscard.js'
 
 
 function Assetspage() {

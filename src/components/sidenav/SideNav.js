@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SideNavcss.css';
-import fdalogo from '../../../assets/fdalogo.png';
+import fdalogo from '../../assets/fdalogo.png';
 
 function SideNav() {
   const [isOpen, setIsOpen] = useState(false);
