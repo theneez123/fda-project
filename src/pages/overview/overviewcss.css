@@ -1,0 +1,34 @@
+
+*{
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e6e6e6;
+    }
+    
+   .container{
+    display: flex;
+    width: 100%;
+   }
+
+  
+    .ContentArea {
+      display: flex;
+      width: 80%;
+      flex-direction: column;
+      max-height: 100vh;
+    }
+       
+    .MainContent {
+      padding: 2rem;
+      flex: 1;
+      margin-top: 20px;
+      background-color: white;
+      overflow-y: auto; 
+    }
+  

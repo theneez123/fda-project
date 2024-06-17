@@ -14,7 +14,6 @@ const overview = () => {
         <TopNav/>
         <div className="MainContent">         
           Main page
-
         </div>
       </div>
     </div>
