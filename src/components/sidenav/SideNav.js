@@ -23,6 +23,7 @@ function SideNav() {
           <li><a href="#">Overview</a></li>
           <li><a href="#">Departments</a></li>
           <li className='active'><a href="#">Total Assets</a></li>
+          <li><a href="#">Users</a></li>
           <li><a href="#">System Logs</a></li>
         </ul>
       </div>
