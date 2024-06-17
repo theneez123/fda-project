@@ -1,6 +1,6 @@
 import React from 'react';
 import './Assetscardcss.css';
-import microscope from '../../../assets/microscope.png'
+import microscope from '../../assets/microscope.png'
 
 function Assetscard(props){
     return (

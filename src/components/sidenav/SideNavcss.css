@@ -1,4 +1,4 @@
-/* SideNavcss.css */
+
 .SideNav {
   width: 220px;
   height: 97vh;
@@ -58,7 +58,6 @@
   margin: 5px 0;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .SideNav {
     position: fixed;
