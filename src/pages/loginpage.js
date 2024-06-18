@@ -1,9 +1,15 @@
 import React from "react";
 import fdalogo from '../assets/fdalogo.png'
 import "./logincss.css"
+import { useNavigate } from 'react-router-dom';
+
 
 function Login(){
 
+  const navigate = useNavigate();
+  const moveToAssets = () => {
+    navigate("/assets");
+  }
     return(
         <div className="login-container">
         <div className="login-box">
@@ -21,7 +27,7 @@ function Login(){
             <input type="password" id="password" name="password" />
           </div>
            
-          <button type="submit" className="login-button">Login</button>
+          <button onClick={moveToAssets} type="submit" className="login-button">Login</button>
         </form>
 
         <div className="links">

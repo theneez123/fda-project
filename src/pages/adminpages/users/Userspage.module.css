@@ -15,51 +15,6 @@ body {
   display: flex;
   width: 100%;
  }
-  
-  .SideNav {
-    width: 220px;
-    height: 97vh;
-    background-color: #ffffff;
-    padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
-  
-  .SideNav img {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  
-  .SideNav ul li {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border: 1.5px solid #2e3190;
-    border-radius: 20px;
-    text-align: center;
-  }
-
-  .SideNav ul li a {
-    color: #2e3190;
-    text-decoration: none;
-    display: block;
-    
-  }
-  
-  .SideNav ul li:hover {
-    background-color: #e0e0e0;
-  }
-
-  .SideNav ul li.active  {
-    background-color: #2e3190;  
-    color: white;               
-  }
-
-  .SideNav ul li.active  a{
-    color: white;               
-  } 
-
 
   .ContentArea {
     display: flex;

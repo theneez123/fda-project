@@ -1,0 +1,100 @@
+
+*{
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+  }
+  
+ .container{
+  display: flex;
+  width: 100%;
+ }
+  
+  .ContentArea {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    max-height: 100vh;
+  }
+  
+  
+  .MainContent {
+    padding: 2rem;
+    flex: 1;
+    margin-top: 20px;
+    background-color: white;
+    overflow-y: auto; 
+  }
+
+
+.title {
+  display: flex;
+  flex-direction: column;     
+  align-items: center;      
+  text-align: center;   
+  width: 100%; 
+  padding: 0px 10px;             
+  }
+
+  .cardarea{
+    display: flex;
+    flex-direction: column;
+  }
+
+.AddButton {
+  margin-top: 10px; 
+  margin-right: 20px;          
+  padding: 10px 10px;         
+  background-color: #007bff;  
+  color: white;               
+  border-radius: 5px;         
+  cursor: pointer;            
+  align-self: flex-end;       
+}
+
+
+.AddButton:hover {
+  background-color: #0056b3;  
+}
+
+  
+  .MainContent h1 {
+    margin-bottom: 20px;
+  }
+
+
+  
+  .AddButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    float: right;
+    margin-bottom: 20px;
+  }
+
+
+
+@media (max-width: 768px) {
+  .ContentArea {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 55px;
+  }
+
+  .MainContent {
+    width: 95%;
+    padding: 5px;
+    align-items: center;
+  }
+}
