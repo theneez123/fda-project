@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Assetspage.module.css';
-import SideNav from '../../../components/sidenav/SideNav.js';
-import TopNav from '../../../components/topnav/TopNav.js';
-import Assetscard from '../../../components/assetscard/assetscard.js'
-import { useNavigate } from 'react-router-dom';
+import SideNav from '../../components/sidenav/SideNav.js';
+import TopNav from '../../components/topnav/TopNav.js';
+import Assetscard from '../../components/assetscard/assetscard.js'
 
 function Assetspage() {
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Overview.module.css';
-import SideNav from '../../../components/sidenav/SideNav.js';
-import TopNav from '../../../components/topnav/TopNav.js';
-import { useNavigate } from 'react-router-dom';
+import fdalogo from '../../assets/fdalogo.png';
+import SideNav from '../../components/sidenav/SideNav.js';
+import TopNav from '../../components/topnav/TopNav.js';
+
 
 function Overview () {
 
@@ -12,7 +13,13 @@ function Overview () {
       <div className={styles.ContentArea}>
 
         <TopNav/>
-        <div className= {styles.MainContent}>         
+
+        <div className= {styles.MainContent}> 
+
+          <div className="header">
+            <img src={fdalogo} alt="Logo" />
+          </div>    
+
           <div className={styles.title}>
             <h1>Overview</h1>
             <p>Overview of the total assets in the industry and its details</p>

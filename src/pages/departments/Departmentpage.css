@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+.firstcontainer {
+    display: flex;
+    width: 100%;
+
+}
+.secondcontainer {
+    width: 78%;
+
+
+}
+.thirdcontainer {
+    background-color: white;
+    width: 100%;
+    margin-top: 30px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.img {
+    width: 20px;
+    height: 20px;
+}
+.main {
+    width: 80%;
+    height: fit-content;
+    margin-top: 30px;
+    overflow-y: auto; 
+
+}
+
+.main h1 {
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+.main p {
+    text-align: left;
+    padding: 0px 50px;
+}
+
+.covers {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px; /* Add this line to create a 20px gap between items */
+  }
+  
+  .covers > div {
+    flex-basis: calc(50% - 10px); /* Subtract half the gap size from the width */
+    max-width: calc(40% - 10px); /* Subtract half the gap size from the max-width */
+  }
+
+
+  @media (max-width: 768px) {
+    .firstcontainer {
+        display: block;
+            
+    }
+  }

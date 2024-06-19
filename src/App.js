@@ -1,9 +1,11 @@
 import Login from './pages/loginpage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Assetspage from './pages/adminpages/assetspage/Assetspage';
-import Userspage from './pages/adminpages/users/Userspage';
-import Overview from './pages/adminpages/overview/Overview';
+import Assetspage from './pages/assetspage/Assetspage';
+import Userspage from './pages/users/Userspage';
+import Overview from './pages/overview/Overview';
+import Departemntpage from './pages/departments/Departmentpage';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
             <Route path='/overview' element = {<Overview/>} />
             <Route path='/assets' element = {<Assetspage/>} />
             <Route path='/users' element = {<Userspage/>} /> 
+            <Route path='/departments' element = {<Departemntpage/>} />
           </Routes>     
           
 

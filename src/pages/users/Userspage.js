@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Userspage.module.css';
-import SideNav from '../../../components/sidenav/SideNav.js';
-import TopNav from '../../../components/topnav/TopNav.js';
-import Usercard from '../../../components/usercard/Usercard.js';
+import SideNav from '../../components/sidenav/SideNav.js';
+import TopNav from '../../components/topnav/TopNav.js';
+import Usercard from '../../components/usercard/Usercard.js';
 
 
 function Users() {

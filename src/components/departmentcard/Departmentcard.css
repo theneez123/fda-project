@@ -1,0 +1,28 @@
+.outer {
+    background-color: white;
+    border-radius: 5px;
+    width: 30%;
+}
+.outer {
+    box-shadow: 5px 0 10px rgb(227, 222, 222), /* Right shadow */
+              -5px 0 10px rgb(227, 222, 222), /* Left shadow */
+              0 5px 10px  rgb(227, 222, 222); /* Bottom shadow */
+  }
+
+.img-out {
+    width: 90%;
+}
+
+.writing h1{
+    font-size: 0.8rem;
+    padding: 0px;
+    margin: 5px 0px;
+    text-align: left;
+    padding: 0px 10px;
+}
+.writing p {
+    font-size: 0.8rem;
+    text-align: left;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+}
