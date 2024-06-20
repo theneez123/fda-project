@@ -2,7 +2,7 @@ import React from 'react';
 import './Usercardcss.css';
 import userpic from '../../assets/user.png';
 
-function Usercard({ username, userid, email, role, onEdit }) {
+function Usercard({ email, userid, role, onEdit }) {
   return (
     <div className="container">
       <div className="Userpic">
@@ -10,10 +10,9 @@ function Usercard({ username, userid, email, role, onEdit }) {
       </div>
 
       <div className="UserInfo">
-        <p>Username: {username}</p>
-        <p>UserID: {userid}</p>
         <p>Email: {email}</p>
-        <p>RoleID: {role}</p>
+        <p>User ID: {userid}</p>
+        <p>Role: {role}</p>
         <button onClick={onEdit} className="edit-button">
           Edit
         </button>

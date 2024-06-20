@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './Userspage.module.css';
 import SideNav from '../../components/sidenav/SideNav.js';
 import TopNav from '../../components/topnav/TopNav.js';
 import Usercard from '../../components/usercard/Usercard.js';
 import Edituserpage from '../../components/edituser/Edituser.js';
-import axios from 'axios';
 
 function Users() {
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +32,13 @@ function Users() {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/users/${userID}`);
         if (response.status === 200) {
-          setUsers(response.data.userData);
+          console.log(response);
+          const userData = {
+            email: response.data.Email,
+            userID: response.data._id,
+            role: response.data.Role_Name 
+          };
+          setUsers([userData]); 
         } else if (response.status === 403) {
           setError(response.data.message);
         } else {
@@ -51,7 +57,6 @@ function Users() {
   return (
     <div className={styles.container}>
       <SideNav />
-
       <div className={styles.ContentArea}>
         <TopNav />
         <div className={styles.MainContent}>
@@ -65,13 +70,12 @@ function Users() {
           ) : error ? (
             <p className="error-message">{error}</p>
           ) : (
-            users.map((user) => (
+            users.map((user, index) => (
               <Usercard
-                key={user.userID}
-                username={user.username}
-                userid={user.userID}
+                key={index}
                 email={user.email}
-                role={user.roleID}
+                userid={user.userID}
+                role={user.role}
                 onEdit={() => handleEditButtonClick(user)}
               />
             ))

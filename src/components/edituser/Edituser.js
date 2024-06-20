@@ -79,32 +79,7 @@ function Modal({ show, onClose, user }) {
         <form className={styles.form} onSubmit={handleSaveChanges}>
           {error && <p className={styles.errorMessage}>{error}</p>}
           {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
-          <label>Role ID:</label>
-          <select
-            value={roleId}
-            onChange={(e) => setRoleId(e.target.value)}
-            required
-          >
-            <option value="">Select Role</option>
-            {userRole === 'Admin' && (
-              <>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-                <option value="moderator">Moderator</option>
-                {/* Add other roles as necessary */}
-              </>
-            )}
-            {userRole === 'Asset Manager' && (
-              <option value="asset_manager">Asset Manager</option>
-            )}
-            {userRole === 'Department Head' && (
-              <option value="department_head">Department Head</option>
-            )}
-            {userRole === 'IT Support' && (
-              <option value="it_support">IT Support</option>
-            )}
-            {/* Add other roles based on your application's role hierarchy */}
-          </select>
+  
           <label>Username:</label>
           <input
             type="text"

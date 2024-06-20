@@ -22,9 +22,7 @@ function Overview () {
           </div>    
 
           <div className={styles.title}>
-            <h1>Overview</h1>
-            <p>Overview of the total assets in the industry and its details</p>
-    
+            <h1>Overview</h1>    
           </div>
 
           <div className= {styles.mission}>

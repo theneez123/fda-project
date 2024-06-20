@@ -19,27 +19,34 @@ function Login() {
 
     try {
       const response = await axios.post("https://four18-fda-backend.onrender.com/login", {
-        userID: userID,
-        password: password
+        userID,
+        password
       });
+
+      console.log('Login response:', response); // Log the response for debugging
 
       const data = response.data;
 
-      if (response.status === 200 && data.role) {
-        localStorage.setItem('role', data.role.Role_Name);
-        localStorage.setItem('userID', data.userID);
+      if (response.status === 200) {
+
+        localStorage.setItem('role', data.roleName);
+        localStorage.setItem('userID', userID); 
 
         navigate("/overview");
       } else {
         setErrorMessage('Invalid credentials, please try again.');
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setErrorMessage(error.response.data.message);
+      if (error.response) {
+        if (error.response.status === 401) {
+          setErrorMessage(error.response.data.message || 'Unauthorized access.');
+        } else {
+          setErrorMessage('An error occurred during login. Please try again.');
+        }
       } else {
-        console.error('Login error:', error);
-        setErrorMessage('An error occurred during login. Please try again.');
+        setErrorMessage('Network error. Please check your connection.');
       }
+      console.error('Login error:', error); // Log the error for further analysis
     } finally {
       setLoading(false);
     }
@@ -60,6 +67,7 @@ function Login() {
               value={userID} 
               onChange={(e) => setUserID(e.target.value)} 
               required 
+              aria-label="Enter your username"
             />
           </div>
 
@@ -72,6 +80,7 @@ function Login() {
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
               required 
+              aria-label="Enter your password"
             />
           </div>
 

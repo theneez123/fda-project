@@ -4,28 +4,25 @@ import fdalogo from '../../assets/fdalogo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function SideNav() {
-  //const [userRole, setUserRole] = useState('');
-
-  const userRole = "Admin";
-
+  const [userRole, setUserRole] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  //  useEffect(() => {
-  //    // Retrieve user role from localStorage
-  //    const role = localStorage.getItem('role');
-  //     if (role) {
-  //      setUserRole(role);
-  //    }
-  //    }, []);
+  useEffect(() => {
+    // Retrieve user role from localStorage
+    const role = localStorage.getItem('role');
+    if (role) {
+      setUserRole(role);
+    }
+  }, []);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
 
   const shouldDisplayLink = (link) => {
-    switch(userRole) {
+    switch (userRole) {
       case 'Admin':
         return true;
       case 'Asset Manager':
@@ -57,6 +54,13 @@ function SideNav() {
 
   const moveToSystemlogs = () => {
     navigate("/systemlogs");
+  };
+
+  const handleLogout = () => {
+   
+    localStorage.removeItem('role');
+ 
+    navigate("/");
   };
 
   return (
@@ -95,6 +99,9 @@ function SideNav() {
               <a>System Logs</a>
             </li>
           )}
+          <li className="logout" onClick={handleLogout}>
+            <a>Logout</a>
+          </li>
         </ul>
       </div>
     </div>

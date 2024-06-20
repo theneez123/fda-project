@@ -20,6 +20,8 @@ const Systemlogpage = () => {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/logs/${userID}`);
         if (response.status === 200) {
+          console.log('Login response:', response);
+
           setLogs(response.data.logData);
         } else if (response.status === 403) {
           setError(response.data.message);

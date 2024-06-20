@@ -22,7 +22,14 @@ function Assetspage() {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/assets/${userID}`);
         if (response.status === 200) {
-          setAssets(response.data.assets);
+          const responseData = response.data;
+          // Assuming assets is a property in responseData
+          if (responseData.assets && Array.isArray(responseData.assets)) {
+            console.log(response.data)
+            setAssets(responseData.assets);
+          } else {
+            throw new Error('Invalid assets data received');
+          }
         } else if (response.status === 403) {
           setError(response.data.message);
         } else {
@@ -51,7 +58,7 @@ function Assetspage() {
     try {
       const response = await axios.delete(`https://four18-fda-backend.onrender.com/asset/${userID}/${assetID}`);
       if (response.status === 200) {
-        setAssets(assets.filter(asset => asset.id !== assetID));
+        setAssets(assets.filter(asset => asset.Asset_ID !== assetID));
       }
     } catch (error) {
       console.error('Error deleting asset:', error);
@@ -72,19 +79,20 @@ function Assetspage() {
               + Add Asset
             </button>
           </div>
-        
+
           <div className={styles.cardarea}>
             {loading && <p>Loading assets...</p>}
             {error && <p>Error: {error}</p>}
             {!loading && !error && assets.length === 0 && <p>No assets found.</p>}
             {!loading && !error && assets.map(asset => (
               <Assetscard
-                key={asset.id}
-                id={asset.id}
-                name={asset.name}
-                department={asset.department}
-                description={asset.description}
-                status={asset.status}
+                key={asset.Asset_ID}
+                id={asset.Asset_ID}
+                name={asset.Asset_Name}
+                procurementDate={asset.Procurement_Date}
+                serialNumber={asset.Serial_Number}
+                tagID={asset.Tag_ID}
+                statusName={asset.Status_Name}
                 onDelete={handleDeleteAsset}
               />
             ))}
