@@ -4,24 +4,14 @@ import styles from './Userspage.module.css';
 import SideNav from '../../components/sidenav/SideNav.js';
 import TopNav from '../../components/topnav/TopNav.js';
 import Usercard from '../../components/usercard/Usercard.js';
-import Edituserpage from '../../components/edituser/Edituser.js';
 
 function Users() {
-  const [showModal, setShowModal] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const handleEditButtonClick = (user) => {
-    setSelectedUser(user);
-    setShowModal(true);
-  };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedUser(null);
-  };
+
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -72,13 +62,12 @@ function Users() {
                 email={user.Email}
                 userid={user._id}
                 role={user.role.Role_Name}
-                onEdit={() => handleEditButtonClick(user)}
+
               />
             ))
           )}
         </div>
       </div>
-      <Edituserpage show={showModal} onClose={handleCloseModal} user={selectedUser} />
     </div>
   );
 }

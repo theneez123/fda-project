@@ -13,9 +13,7 @@ function Usercard({ email, userid, role, onEdit }) {
         <p>Email: {email}</p>
         <p>User ID: {userid}</p>
         <p>Role: {role}</p>
-        <button onClick={onEdit} className="edit-button">
-          Edit
-        </button>
+
       </div>
     </div>
   );
