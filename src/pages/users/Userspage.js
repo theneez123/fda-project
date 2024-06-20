@@ -32,13 +32,7 @@ function Users() {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/users/${userID}`);
         if (response.status === 200) {
-          console.log(response);
-          const userData = {
-            email: response.data.Email,
-            userID: response.data._id,
-            role: response.data.Role_Name 
-          };
-          setUsers([userData]); 
+          setUsers(response.data.userData);
         } else if (response.status === 403) {
           setError(response.data.message);
         } else {
@@ -48,6 +42,7 @@ function Users() {
         setError(error.message || 'Failed to fetch users');
       } finally {
         setLoading(false);
+        console.log(users);
       }
     };
 
@@ -73,9 +68,9 @@ function Users() {
             users.map((user, index) => (
               <Usercard
                 key={index}
-                email={user.email}
-                userid={user.userID}
-                role={user.role}
+                email={user.Email}
+                userid={user._id}
+                role={user.role.roleName}
                 onEdit={() => handleEditButtonClick(user)}
               />
             ))
