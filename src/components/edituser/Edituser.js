@@ -37,21 +37,21 @@ function Modal({ show, onClose, user }) {
     setLoading(true);
 
     try {
-      // Update user data on the backend
       const response = await axios.put(`https://four18-fda-backend.onrender.com/user/${userId}`, {
         newEmail: email,
         newRoleName: userRole,
         targetUserID: userId,
       });
 
-      // Handle response 
+      
+      console.log(response.status);
       if (response.status === 200) {
+        console.log(response.status);
         setSuccessMessage('User details updated successfully.');
         setTimeout(() => onClose(), 2000); 
       }
     } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
         if (error.response.status === 403) {
           setError('You are not authorized to update user details.');
         } else if (error.response.status === 404) {
