@@ -22,8 +22,10 @@ function Assetspage() {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/assets/${userID}`);
         if (response.status === 200) {
+
+          console.log("assets:" + response.data)
           const responseData = response.data;
-          // Assuming assets is a property in responseData
+         
           if (responseData.assets && Array.isArray(responseData.assets)) {
             console.log(response.data)
             setAssets(responseData.assets);
@@ -92,7 +94,7 @@ function Assetspage() {
                 procurementDate={asset.Procurement_Date}
                 serialNumber={asset.Serial_Number}
                 tagID={asset.Tag_ID}
-                statusName={asset.Status_Name}
+                statusName={asset.status.Status_Name}
                 onDelete={handleDeleteAsset}
               />
             ))}

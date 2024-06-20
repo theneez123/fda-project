@@ -31,7 +31,6 @@ function Modal({ show, onClose, user }) {
     setError('');
     setSuccessMessage('');
 
-    // Basic validation
     if (!roleId || !username || !email) {
       setError('Please fill in all the fields.');
       return;
@@ -47,10 +46,10 @@ function Modal({ show, onClose, user }) {
         targetUserID: userId,
       });
 
-      // Handle response (e.g., show success message, close modal, etc.)
+      // Handle response 
       if (response.status === 200) {
         setSuccessMessage('User details updated successfully.');
-        setTimeout(() => onClose(), 2000); // Close modal after 2 seconds
+        setTimeout(() => onClose(), 2000); 
       }
     } catch (error) {
       if (error.response) {

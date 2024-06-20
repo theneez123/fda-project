@@ -11,15 +11,6 @@ function Assetscard({ id, name, procurementDate, serialNumber, tagID, statusName
 
   return (
     <div className="CardContainer">
-      <div className='status-wrapper'>
-        <div className="Status">
-          <div className={`status-indicator `}>
-            <p>{statusName}</p>
-          </div>
-        </div>
-        
-      </div>
-
       <div className='asset'>
         <img src={microscope} alt="Microscope" />
         <div className="AssetInfo">
@@ -27,9 +18,10 @@ function Assetscard({ id, name, procurementDate, serialNumber, tagID, statusName
           <p>Procurement Date: {new Date(procurementDate).toLocaleDateString()}</p>
           <p>Serial Number: {serialNumber}</p>
           <p>Tag ID: {tagID}</p>
+          <p>Status: {statusName}</p>
         </div>
       </div>
-      <button className='deletebtn' onClick={handleDeleteClick}> Delete </button>
+      <button className='deletebtn' onClick={handleDeleteClick}>Delete</button>
     </div>
   );
 }

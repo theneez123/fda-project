@@ -40,7 +40,7 @@ function Addassetpage({ show, onClose }) {
 
       if (response.status === 201) {
         setSuccess(true);
-        // Clear form inputs after successful submission
+        
         setAssetName('');
         setSerialNumber('');
         setTagID('');

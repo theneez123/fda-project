@@ -7,7 +7,7 @@ import htmlicon1 from "../../assets/asset.png";
 import Systemlogcard from "../../components/systemlogcard/systemlogcard";
 
 const Systemlogpage = () => {
-  const [logs, setLogs] = useState({ remoteLogs: [], localLogs: [] });
+  const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,9 +20,11 @@ const Systemlogpage = () => {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/logs/${userID}`);
         if (response.status === 200) {
-          console.log('Login response:', response);
+          console.log('Logs response:', response);
 
-          setLogs(response.data.logData);
+
+          const localLogs = response.data.logData.localLogs;
+          setLogs(localLogs);
         } else if (response.status === 403) {
           setError(response.data.message);
         } else {
@@ -51,8 +53,8 @@ const Systemlogpage = () => {
             <div className="hold">
               {loading && <p>Loading logs...</p>}
               {error && <p>Error: {error}</p>}
-              {!loading && !error && logs.remoteLogs.concat(logs.localLogs).length === 0 && <p>No logs found.</p>}
-              {!loading && !error && logs.remoteLogs.concat(logs.localLogs).map((log, index) => (
+              {!loading && !error && logs.length === 0 && <p>No logs found.</p>}
+              {!loading && !error && logs.map((log, index) => (
                 <Systemlogcard key={index} log={log} />
               ))}
             </div>
