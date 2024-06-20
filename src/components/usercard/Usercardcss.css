@@ -4,19 +4,28 @@
    border: none;
     border-radius: 8px;
     margin: 1rem  5rem 1rem;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
-    flex-direction: row;
+    align-items: center;
   }
   
-  .Userpic {
+  .User  {
+
+    margin-left: 5px;
     
   }
 
   .UserInfo {
     padding: 5px;
-    margin-left: 5px;
-  }
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.UserInfo p {
+    margin: 0.5rem 0; /* Add margin to space out the items */
+}
 
   @media (max-width: 768px) {
     .container {
@@ -24,5 +33,11 @@
       border-radius: 8px;
       margin: 1rem  5rem 1rem;
       padding: 1rem;
-    }
+    } 
+
+    .UserInfo {
+      margin-left: 0;
+      align-items: center; /* Center text on small screens */
+      text-align: center; /* Center text alignment */
+  }
   }

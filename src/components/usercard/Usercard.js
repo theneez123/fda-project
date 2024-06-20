@@ -1,26 +1,25 @@
 import React from 'react';
 import './Usercardcss.css';
-import microscope from '../../assets/user.png'
+import userpic from '../../assets/user.png';
 
-function Usercard(props){
+function Usercard({ username, userid, email, role, onEdit }) {
+  return (
+    <div className="container">
+      <div className="Userpic">
+        <img src={userpic} alt="User" />
+      </div>
 
-    return (
-            <div className="container">
-            
-              <div className= "Userpic">
-                  <img src={microscope} alt="Microscope" />
-              </div>
-            
-              <div className="UserInfo">
-                <p>UserName: {props.username}</p>
-                <p>UserID: {props.userid}</p>
-                <p>Email: {props.email}</p>
-                <p>RoleID: {props.role}</p>
-              </div>
-              
-            </div>
-
-    );
+      <div className="UserInfo">
+        <p>Username: {username}</p>
+        <p>UserID: {userid}</p>
+        <p>Email: {email}</p>
+        <p>RoleID: {role}</p>
+        <button onClick={onEdit} className="edit-button">
+          Edit
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Usercard;

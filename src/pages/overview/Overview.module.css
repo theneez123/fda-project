@@ -11,7 +11,16 @@
     background-color: #e6e6e6;
   }
   
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
   
+  .header img{
+
+    height: 150px;
+  }
  .container{
   display: flex;
   width: 100%;
@@ -43,26 +52,43 @@
   padding: 0px 10px;             
   }
 
-  .cardarea{
+  .newsSection{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: space-evenly;
   }
 
-.AddButton {
-  margin-top: 10px; 
-  margin-right: 20px;          
-  padding: 10px 10px;         
-  background-color: #007bff;  
-  color: white;               
-  border-radius: 5px;         
-  cursor: pointer;            
-  align-self: flex-end;       
-}
+  .news{
+    width: 300px;
+      margin: 10px;
+      padding: 10px;
+  }
 
+  .news h3{
+    margin: 10px;
+  }
 
-.AddButton:hover {
-  background-color: #0056b3;  
-}
+  .mission{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
+
+  .missionpic img{
+    margin-top: 20px;
+    height: 200px;
+  }
+  .missiontxt{
+    width: 300px;
+      margin: 10px;
+      padding: 10px;
+  }
+
+  .missiontxt h3{
+    margin: 10px;
+  }
 
   
   .MainContent h1 {

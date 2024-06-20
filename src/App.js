@@ -5,6 +5,7 @@ import Assetspage from './pages/assetspage/Assetspage';
 import Userspage from './pages/users/Userspage';
 import Overview from './pages/overview/Overview';
 import Departemntpage from './pages/departments/Departmentpage';
+import Systemlogs from './pages/systemlogs/Systemlogpage';
 
 
 function App() {
@@ -13,11 +14,12 @@ function App() {
         <div className="App">
         
           <Routes>
-            <Route path='/' element = {<Login/>} />
-            <Route path='/overview' element = {<Overview/>} />
+            {/* <Route path='/' element = {<Login/>} /> */}
+            <Route path='/' element = {<Overview/>} />
             <Route path='/assets' element = {<Assetspage/>} />
             <Route path='/users' element = {<Userspage/>} /> 
             <Route path='/departments' element = {<Departemntpage/>} />
+            <Route path='/systemlogs' element = {<Systemlogs/>} />
           </Routes>     
           
 

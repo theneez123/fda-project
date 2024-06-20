@@ -7,10 +7,13 @@
     box-shadow: 5px 0 10px rgb(227, 222, 222), /* Right shadow */
               -5px 0 10px rgb(227, 222, 222), /* Left shadow */
               0 5px 10px  rgb(227, 222, 222); /* Bottom shadow */
+
+    
   }
 
 .img-out {
     width: 90%;
+    margin: 10px;
 }
 
 .writing h1{

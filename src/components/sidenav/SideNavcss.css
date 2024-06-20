@@ -1,4 +1,3 @@
-
 .SideNav {
   width: 220px;
   height: 97vh;
@@ -12,6 +11,12 @@
 .SideNav img {
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.SideNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .SideNav ul li {

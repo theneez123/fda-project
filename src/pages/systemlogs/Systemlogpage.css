@@ -1,0 +1,23 @@
+.hold{
+    width: 100%;
+    height: 90vh;
+    margin-top: 20px;
+}
+
+.secondcontainer{
+    max-height: 100vh;
+}
+.setup {
+    background-color: white;
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    overflow-y: auto; 
+}
+.setup h1{
+    padding: 10px 0px;
+}
+
+.setup p{
+
+}

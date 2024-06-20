@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SideNavcss.css';
 import fdalogo from '../../assets/fdalogo.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function SideNav({ userRole }) {
+function SideNav() {
+  //const [userRole, setUserRole] = useState('');
+
+  const userRole = "Admin";
+
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+
+  //  useEffect(() => {
+  //    // Retrieve user role from localStorage
+  //    const role = localStorage.getItem('role');
+  //     if (role) {
+  //      setUserRole(role);
+  //    }
+  //    }, []);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
 
-  // Function to check if a link should be displayed based on the user role
   const shouldDisplayLink = (link) => {
     switch(userRole) {
       case 'Admin':
         return true;
-      case 'assetManager':
-        return ['overview', 'assets', 'logs'].includes(link);
-      case 'departmentHead':
-        return ['overview', 'departments', 'assets', 'logs'].includes(link);
-      case 'itSupport':
-        return ['overview', 'assets', 'users', 'logs'].includes(link);
+      case 'Asset Manager':
+        return ['overview', 'assets', 'systemlogs'].includes(link);
+      case 'Department Head':
+        return ['overview', 'departments', 'assets', 'systemlogs'].includes(link);
+      case 'IT Support':
+        return ['overview', 'assets', 'users', 'systemlogs'].includes(link);
       default:
         return false;
     }
@@ -42,7 +54,11 @@ function SideNav({ userRole }) {
   const moveToDepartments = () => {
     navigate("/departments");
   };
-  
+
+  const moveToSystemlogs = () => {
+    navigate("/systemlogs");
+  };
+
   return (
     <div>
       <div className="burger-menu" onClick={toggleNav}>
@@ -54,11 +70,31 @@ function SideNav({ userRole }) {
       <div className={`SideNav ${isOpen ? 'open' : ''}`}>
         <img src={fdalogo} alt="FDA Logo" />
         <ul>
-          {shouldDisplayLink('overview') && <li onClick={moveToOverview}><a>Overview</a></li>}
-          {shouldDisplayLink('departments') && <li onClick={moveToDepartments}><a>Departments</a></li>}
-          {shouldDisplayLink('assets') && <li onClick={moveToAssets}><a className="active">Total Assets</a></li>}
-          {shouldDisplayLink('users') && <li onClick={moveToUsers}><a>Users</a></li>}
-          {shouldDisplayLink('logs') && <li><a href="#">System Logs</a></li>}
+          {shouldDisplayLink('overview') && (
+            <li className={location.pathname === '/overview' ? 'active' : ''} onClick={moveToOverview}>
+              <a>Overview</a>
+            </li>
+          )}
+          {shouldDisplayLink('departments') && (
+            <li className={location.pathname === '/departments' ? 'active' : ''} onClick={moveToDepartments}>
+              <a>Departments</a>
+            </li>
+          )}
+          {shouldDisplayLink('assets') && (
+            <li className={location.pathname === '/assets' ? 'active' : ''} onClick={moveToAssets}>
+              <a>Total Assets</a>
+            </li>
+          )}
+          {shouldDisplayLink('users') && (
+            <li className={location.pathname === '/users' ? 'active' : ''} onClick={moveToUsers}>
+              <a>Users</a>
+            </li>
+          )}
+          {shouldDisplayLink('systemlogs') && (
+            <li className={location.pathname === '/systemlogs' ? 'active' : ''} onClick={moveToSystemlogs}>
+              <a>System Logs</a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
