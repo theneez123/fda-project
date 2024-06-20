@@ -23,7 +23,7 @@ function Login() {
         password
       });
 
-      console.log('Login response:', response); // Log the response for debugging
+      console.log('Login response:', response); 
 
       const data = response.data;
       console.log(data);

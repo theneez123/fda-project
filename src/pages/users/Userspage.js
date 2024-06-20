@@ -32,6 +32,7 @@ function Users() {
         }
         const response = await axios.get(`https://four18-fda-backend.onrender.com/users/${userID}`);
         if (response.status === 200) {
+          console.log(response.data);
           setUsers(response.data.userData);
         } else if (response.status === 403) {
           setError(response.data.message);
@@ -70,7 +71,7 @@ function Users() {
                 key={index}
                 email={user.Email}
                 userid={user._id}
-                role={user.role.roleName}
+                role={user.role.Role_Name}
                 onEdit={() => handleEditButtonClick(user)}
               />
             ))

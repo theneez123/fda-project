@@ -2,21 +2,19 @@ import React, { useState, useEffect } from 'react';
 import styles from './Edituser.module.css';
 import axios from 'axios';
 
+const roleOptions = ['Admin', 'Asset Manager', 'Department Head', 'IT Support'];
+
 function Modal({ show, onClose, user }) {
-  const [roleId, setRoleId] = useState(user?.roleId || '');
-  const [username, setUsername] = useState(user?.username || '');
+  const [userRole, setUserRole] = useState(user?.roleName || ''); // Assuming roleName matches backend response
   const [userId, setUserId] = useState(user?.userId || '');
   const [email, setEmail] = useState(user?.email || '');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const userRole = localStorage.getItem('role');
-
   useEffect(() => {
     if (user) {
-      setRoleId(user.roleId);
-      setUsername(user.username);
+      setUserRole(user.roleName);
       setUserId(user.userId);
       setEmail(user.email);
     }
@@ -31,7 +29,7 @@ function Modal({ show, onClose, user }) {
     setError('');
     setSuccessMessage('');
 
-    if (!roleId || !username || !email) {
+    if (!userRole || !email) {
       setError('Please fill in all the fields.');
       return;
     }
@@ -42,7 +40,7 @@ function Modal({ show, onClose, user }) {
       // Update user data on the backend
       const response = await axios.put(`https://four18-fda-backend.onrender.com/user/${userId}`, {
         newEmail: email,
-        newRoleName: roleId,
+        newRoleName: userRole,
         targetUserID: userId,
       });
 
@@ -79,13 +77,6 @@ function Modal({ show, onClose, user }) {
           {error && <p className={styles.errorMessage}>{error}</p>}
           {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
   
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
           <label>User ID:</label>
           <input
             type="text"
@@ -99,6 +90,20 @@ function Modal({ show, onClose, user }) {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <label>User Role:</label>
+          <select
+            value={userRole}
+            onChange={(e) => setUserRole(e.target.value)}
+            required
+          >
+            <option value="">Select role</option>
+            {roleOptions.map((role) => (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            ))}
+          </select>
+
           <div className={styles.buttonContainer}>
             <button type="submit" className={styles.addButton} disabled={loading}>
               {loading ? 'Saving...' : 'Save Changes'}

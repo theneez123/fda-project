@@ -5,7 +5,7 @@ function TopNav(){
     return (
         <div className="TopNav">
             <div className="Logo">FDA Asset Tracking System</div>
-            <div className='profile'></div>
+            
         </div>
     );
 }
