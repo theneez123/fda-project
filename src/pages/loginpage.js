@@ -26,6 +26,7 @@ function Login() {
       console.log('Login response:', response); // Log the response for debugging
 
       const data = response.data;
+      console.log(data);
 
       if (response.status === 200) {
 
@@ -59,7 +60,7 @@ function Login() {
         
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">User ID</label>
             <input 
               type="text" 
               id="username" 
