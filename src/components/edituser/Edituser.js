@@ -4,32 +4,28 @@ import axios from 'axios';
 
 const roleOptions = ['Admin', 'Asset Manager', 'Department Head', 'IT Support'];
 
-function Modal({ show, onClose, user }) {
-  const [userRole, setUserRole] = useState(user?.roleName || ''); // Assuming roleName matches backend response
-  const [userId, setUserId] = useState(user?.userId || '');
-  const [email, setEmail] = useState(user?.email || '');
+function Modal({ show, handleCloseModal, targetUserID }) {
+  const [newUserData, setNewUserData] = useState({
+    newEmail: '',
+    newRoleName: '',
+    targetUserID: targetUserID,
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const currentUserID = localStorage.getItem("userID");
 
   useEffect(() => {
-    if (user) {
-      setUserRole(user.roleName);
-      setUserId(user.userId);
-      setEmail(user.email);
+    if (show) {
+      setNewUserData({ ...newUserData, targetUserID });
     }
-  }, [user]);
-
-  if (!show) {
-    return null;
-  }
+  }, [show, targetUserID]);
 
   const handleSaveChanges = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccessMessage('');
 
-    if (!userRole || !email) {
+    const { newEmail, newRoleName } = newUserData;
+
+    if (!newEmail || !newRoleName) {
       setError('Please fill in all the fields.');
       return;
     }
@@ -37,18 +33,17 @@ function Modal({ show, onClose, user }) {
     setLoading(true);
 
     try {
-      const response = await axios.put(`https://four18-fda-backend.onrender.com/user/${userId}`, {
-        newEmail: email,
-        newRoleName: userRole,
-        targetUserID: userId,
+      const response = await axios.put(`https://four18-fda-backend.onrender.com/user/${currentUserID}`, {
+        newEmail,
+        newRoleName,
+        targetUserID,
       });
 
-      
-      console.log(response.status);
       if (response.status === 200) {
-        console.log(response.status);
-        setSuccessMessage('User details updated successfully.');
-        setTimeout(() => onClose(), 2000); 
+        console.log('User details updated successfully.');
+        alert('User details updated successfully.');
+        setTimeout(() => handleCloseModal(), 2000);
+        window.location.reload();
       }
     } catch (error) {
       if (error.response) {
@@ -60,7 +55,6 @@ function Modal({ show, onClose, user }) {
           setError('Failed to update user. Please try again.');
         }
       } else {
-        // Something happened in setting up the request that triggered an Error
         setError('An error occurred. Please try again.');
       }
       console.error('Error updating user:', error);
@@ -69,31 +63,32 @@ function Modal({ show, onClose, user }) {
     }
   };
 
+  if (!show) {
+    return null;
+  }
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
         <h2>Edit User Details</h2>
         <form className={styles.form} onSubmit={handleSaveChanges}>
           {error && <p className={styles.errorMessage}>{error}</p>}
-          {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
-  
+
           <label>User ID:</label>
-          <input
-            type="text"
-            value={userId}
-            disabled
-          />
+          <input type="text" value={targetUserID} disabled />
+
           <label>Email:</label>
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={newUserData.newEmail}
+            onChange={(e) => setNewUserData({ ...newUserData, newEmail: e.target.value })}
             required
           />
+
           <label>User Role:</label>
           <select
-            value={userRole}
-            onChange={(e) => setUserRole(e.target.value)}
+            value={newUserData.newRoleName}
+            onChange={(e) => setNewUserData({ ...newUserData, newRoleName: e.target.value })}
             required
           >
             <option value="">Select role</option>
@@ -108,7 +103,7 @@ function Modal({ show, onClose, user }) {
             <button type="submit" className={styles.addButton} disabled={loading}>
               {loading ? 'Saving...' : 'Save Changes'}
             </button>
-            <button type="button" className={styles.cancelButton} onClick={onClose} disabled={loading}>
+            <button type="button" className={styles.cancelButton} onClick={handleCloseModal} disabled={loading}>
               Cancel
             </button>
           </div>
