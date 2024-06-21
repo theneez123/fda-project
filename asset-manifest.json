@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fda-project/static/css/main.d6edacee.css",
-    "main.js": "/fda-project/static/js/main.f4c6ead1.js",
+    "main.js": "/fda-project/static/js/main.4e41522b.js",
     "static/js/453.785c51bc.chunk.js": "/fda-project/static/js/453.785c51bc.chunk.js",
     "static/media/deptimg.png": "/fda-project/static/media/deptimg.da69ffb92847ad326b66.png",
     "static/media/fdaimg.jpg": "/fda-project/static/media/fdaimg.fc491c5cbb046bb44cc2.jpg",
@@ -10,11 +10,11 @@
     "static/media/user.png": "/fda-project/static/media/user.3f0ebe2d888ebc3dd4c1.png",
     "index.html": "/fda-project/index.html",
     "main.d6edacee.css.map": "/fda-project/static/css/main.d6edacee.css.map",
-    "main.f4c6ead1.js.map": "/fda-project/static/js/main.f4c6ead1.js.map",
+    "main.4e41522b.js.map": "/fda-project/static/js/main.4e41522b.js.map",
     "453.785c51bc.chunk.js.map": "/fda-project/static/js/453.785c51bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d6edacee.css",
-    "static/js/main.f4c6ead1.js"
+    "static/js/main.4e41522b.js"
   ]
 }
