@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/fda-project/static/css/main.d6edacee.css",
+    "main.js": "/fda-project/static/js/main.f4c6ead1.js",
+    "static/js/453.785c51bc.chunk.js": "/fda-project/static/js/453.785c51bc.chunk.js",
+    "static/media/deptimg.png": "/fda-project/static/media/deptimg.da69ffb92847ad326b66.png",
+    "static/media/fdaimg.jpg": "/fda-project/static/media/fdaimg.fc491c5cbb046bb44cc2.jpg",
+    "static/media/microscope.png": "/fda-project/static/media/microscope.e9f788d23955d0ed695f.png",
+    "static/media/fdalogo.png": "/fda-project/static/media/fdalogo.e77bd4b03b5d132193af.png",
+    "static/media/user.png": "/fda-project/static/media/user.3f0ebe2d888ebc3dd4c1.png",
+    "index.html": "/fda-project/index.html",
+    "main.d6edacee.css.map": "/fda-project/static/css/main.d6edacee.css.map",
+    "main.f4c6ead1.js.map": "/fda-project/static/js/main.f4c6ead1.js.map",
+    "453.785c51bc.chunk.js.map": "/fda-project/static/js/453.785c51bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6edacee.css",
+    "static/js/main.f4c6ead1.js"
+  ]
+}
