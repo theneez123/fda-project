@@ -10,7 +10,6 @@ function SideNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Retrieve user role from localStorage
     const role = localStorage.getItem('role');
     if (role) {
       setUserRole(role);
